@@ -1,3 +1,3 @@
-= ActiveRecord::Resource
-
-This project rocks and uses MIT-LICENSE.
+# ActiveRecord::Resource
+## Warning!!
+This gem is not production ready, use at own risk
