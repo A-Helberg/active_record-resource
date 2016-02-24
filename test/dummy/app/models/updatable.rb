@@ -1,12 +1,10 @@
-class Account < ActiveRecord::Base
+class Updatable < ActiveRecord::Base
   def resource_create_validations
-    unless self.number == "valid"
-      errors[:number] << 'Need a name starting with X please!'
-    end
+    true
   end
 
   def resource_create
-    self.number = "a"
+    true
   end
 
   def resource_delete_validations
@@ -18,10 +16,13 @@ class Account < ActiveRecord::Base
   end
 
   def resource_update
-    true
+    self.number = "a"
   end
 
   def resource_update_validations
-    true
+    unless self.number == "valid"
+      errors[:number] << 'Need a name starting with X please!'
+      false
+    end
   end
 end

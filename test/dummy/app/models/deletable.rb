@@ -17,4 +17,12 @@ class Deletable < ActiveRecord::Base
   def resource_delete
     self.number = "a"
   end
+
+  def resource_update
+    true
+  end
+
+  def resource_update_validations
+    true
+  end
 end
