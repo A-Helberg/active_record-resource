@@ -1,9 +1,19 @@
 class Account < ActiveRecord::Base
   def resource_create_validations
-    errors[:number] << 'Need a name starting with X please!'
+    unless self.number == "valid"
+      errors[:number] << 'Need a name starting with X please!'
+    end
   end
 
   def resource_create
-    number = "a"
+    self.number = "a"
+  end
+
+  def resource_delete_validations
+    true
+  end
+
+  def resource_delete
+    true
   end
 end
