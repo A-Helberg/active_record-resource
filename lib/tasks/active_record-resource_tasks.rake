@@ -1,4 +1,4 @@
 # desc "Explaining what the task does"
-# task :active_record_resource do
+# task :active_record-resource do
 #   # Task goes here
 # end
