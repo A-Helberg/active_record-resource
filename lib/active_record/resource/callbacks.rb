@@ -30,6 +30,9 @@ module ActiveRecord
                 before_create :resource_create
                 before_validation(:resource_create_validations, on: :create)
 
+                before_update :resource_update
+                before_validation(:resource_update_validations, on: :update)
+
                 before_destroy :handle_delete
               end
             end
@@ -61,6 +64,14 @@ module ActiveRecord
 
           def self.no_deletable_validations_error
             "The model #{self} is deletable, but does not implement #resource_delete_validations"
+          end
+
+          def self.not_updatable_error
+            "The model #{self} is updatable, but does not implement #resource_update"
+          end
+
+          def self.no_updatable_validations_error
+            "The model #{self} is updatable, but does not implement #resource_update_validations"
           end
         end
       end
