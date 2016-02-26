@@ -48,6 +48,9 @@ module ActiveRecord
 
             raise not_deletable_error unless method_defined? :resource_delete
             raise no_deletable_validations_error unless method_defined? :resource_delete_validations
+
+            raise not_updatable_error unless method_defined? :resource_delete
+            raise no_updatable_validations_error unless method_defined? :resource_delete_validations
           end
 
           def self.not_creatable_error
